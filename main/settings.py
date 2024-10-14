@@ -1,6 +1,5 @@
 import flask, os, flask_sqlalchemy, flask_migrate, flask_mail
 from flask_mail import Mail
-from main.settings import project
 
 project = flask.Flask(
     import_name = "main",
@@ -8,7 +7,7 @@ project = flask.Flask(
     instance_path = os.path.abspath(__file__ + "../../instance/data.db")
 )
 
-project.config["SQLALCHEMY_DATABASE_URL"] = "sqlite:///data.db"
+project.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 
 db = flask_sqlalchemy.SQLAlchemy(app = project)
 migrate = flask_migrate.Migrate(app = project, db = db)
