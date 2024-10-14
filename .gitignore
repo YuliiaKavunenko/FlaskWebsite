@@ -99,7 +99,7 @@ celerybeat-schedule.*
 
 # Environments 
 .env 
-.venv 
+.venv_flaskw
 env/ 
 venv_flaskw/ 
 ENV/ 
