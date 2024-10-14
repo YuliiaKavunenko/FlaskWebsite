@@ -3,9 +3,8 @@ from main.settings import mail
 from flask_mail import Message
 
 def render_home():
-    user_review = flask.request.form.get("user-review")
     if flask.request.method == "POST":
-        if user_review:
+        if flask.request.form.get("name"):
             name = flask.request.form.get("name")
             print(name)
             email = flask.request.form.get("email")
@@ -15,7 +14,7 @@ def render_home():
             try:
                 msg = Message(
                     subject = "новий відгук",
-                    recipients = "crazycel.hihi@gmail.com",
+                    recipients = ["crazycel.hihi@gmail.com"],
                     body = f"клієнт {name} залишив/ла відгук:\n{review}\nпошта для зворотнього зв'язку {email}",
                     sender = "kavunenko0911@gmail.com"
                 )
