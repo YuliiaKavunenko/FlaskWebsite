@@ -99,12 +99,12 @@ celerybeat-schedule.*
 
 # Environments 
 .env 
-.venv 
+.venv_flaskw 
 env/ 
-venv/ 
+venv_flaskw/ 
 ENV/ 
 env.bak/ 
-venv.bak/ 
+venv_flaskw.bak/ 
 
 # mkdocs documentation 
 /site 
