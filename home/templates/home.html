@@ -6,4 +6,11 @@
 
 {% block content %}
     <h1>Головна сторінка</h1>
+    <form method="post" name = "user-review">
+        <input type = "text" name = "name" placeholder = "задайте ваше ім'я">
+        <input type = "email" name = "email" placeholder = "задайте ваш email">
+        <textarea name = "review" placeholder = "ваш відгук"></textarea>
+        <button name = "send-button">Надіслати</button>
+        <p style="color:white"></p>
+    </form>
 {% endblock %}
