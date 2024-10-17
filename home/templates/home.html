@@ -29,7 +29,7 @@
                 <button class = "message-exit-button">
                     Exit
                 </button>
-            {% else if error == False %}
+            {% elif error == False %}
                 <img class = "happy-pinguin" src = "" alt = "">
                 <p class = "main-message">
                     Thanks for your response! 
@@ -37,9 +37,12 @@
                 <p class = "second-message">
                     Your feedback is what people need
                 </p>
-                <button class = "message-exit-button">
-                    Exit
-                </button>
+                <form action="post">
+                    <button class = "message-exit-button">
+                        Exit
+                    </button>
+                </form>
+
             {% endif %}
         </div>
     </div>
