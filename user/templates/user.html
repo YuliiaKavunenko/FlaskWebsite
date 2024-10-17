@@ -5,5 +5,100 @@
 {% endblock %}
 
 {% block content %}
+
     <h1>Сторінка користувача</h1>
+
+    {% if username != 'none' %}
+
+        <h2>Welcome to user page, {{ username }} !</h2>
+
+    {% else %}
+
+        {% if show_registration %}
+
+            <form method="post" name="registration-form">
+
+                <img src="" alt="" class="mini-pinguin">
+                <h2>Registration</h2>
+                <input type="text" name="username" placeholder="Enter your username">
+                <input name="password" placeholder="Enter password">
+                <input type="email" placeholder="Confirm password">
+                <button name="send-button">Confirm</button>
+
+            </form>
+
+            <div class="message-window">
+
+                <div class="mini-window-content">
+
+                    {% if error_rect %}
+
+                        <img class="sad-pinguin" src="" alt="">
+                        <p class="main-message">Oops.. Something went wrong</p>
+                        <p class="second-message">Try again</p>
+                        <form method="post">
+                            <button class="message-exit-button">Exit</button>
+                        </form>
+
+                    {% elif good_registration %}
+                        <img class="happy-pinguin" src="" alt="">
+                        <p class="main-message">Successful registration!</p>
+                        <p class="second-message">Let's move to the next step</p>
+                        <form method="post" name="good-registration">
+                            <button class="message-authorization-button">Authorization</button>
+                        </form>
+
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endif %}
+
+
+        {% if good_registration %}
+
+            <form method="post" name="authorization-form">
+
+                <img src="" alt="" class="mini-pinguin">
+                <h2>Authorization</h2>
+                <input type="text" name="username" placeholder="Enter your username">
+                <input name="password" placeholder="Enter password">
+
+                <button name="send-button">Confirm</button>
+
+            </form>
+
+
+            <div class="message-window">
+
+                <div class="mini-window-content">
+
+                    {% if error_auth %}
+
+                        <img class="sad-pinguin" src="" alt="">
+                        <p class="main-message">Looks like you are not registered</p>
+                        <p class="second-message">Waiting on the registration page!</p>
+
+                        <form method="post">
+                            <button class="message-registration-button">Registration</button>
+                        </form>
+
+                    {% elif not error_auth %}
+
+                        <img class="happy-pinguin" src="" alt="">
+                        <p class="main-message">Successful authorization!</p>
+                        <p class="second-message">Your trip is already waiting for you</p>
+
+                        <form action="post" name="good-registration">
+                            <button class="message-exit-button">Exit</button>
+                        </form>
+                        
+                    {% endif %}
+
+                </div>
+            </div>
+        {% endif %}
+
+    {% endif %}
+
 {% endblock %}
