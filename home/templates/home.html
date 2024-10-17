@@ -7,10 +7,40 @@
 {% block content %}
     <h1>Головна сторінка</h1>
     <form method="post" name = "user-review">
-        <input type = "text" name = "name" placeholder = "задайте ваше ім'я">
-        <input type = "email" name = "email" placeholder = "задайте ваш email">
-        <textarea name = "review" placeholder = "ваш відгук"></textarea>
-        <button name = "send-button">Надіслати</button>
-        <p style="color:white"></p>
+        <h2>
+            Share your opinion with us!
+        </h2>
+        <input type = "text" name = "name" placeholder = "Enter your name">
+        <input type = "email" name = "email" placeholder = "Enter your email">
+        <textarea name = "review" placeholder = "Leave your review"></textarea>
+        <button name = "send-button">Send</button>
+        
     </form>
+    <div id = "message-window">
+        <div id = "mini-window-content">
+            {% if error == True %}
+                <img class = "sad-pinguin" src = "" alt = "">
+                <p class = "main-message">
+                    Oops.. Something went wrong 
+                </p>
+                <p class = "second-message">
+                    try again
+                </p>
+                <button class = "message-exit-button">
+                    Exit
+                </button>
+            {% else if error == False %}
+                <img class = "happy-pinguin" src = "" alt = "">
+                <p class = "main-message">
+                    Thanks for your response! 
+                </p>
+                <p class = "second-message">
+                    Your feedback is what people need
+                </p>
+                <button class = "message-exit-button">
+                    Exit
+                </button>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
