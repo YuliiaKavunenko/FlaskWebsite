@@ -3,8 +3,8 @@ from main.settings import mail
 from flask_mail import Message
 
 def render_home():
+    error = False
     if flask.request.method == "POST":
-        error = False
         if flask.request.form.get("name"):
             name = flask.request.form.get("name")
             print(name)
