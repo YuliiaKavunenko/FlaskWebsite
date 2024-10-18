@@ -1,16 +1,38 @@
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}{% endblock %}</title>
-    </head>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{% block title %}{% endblock %}</title>
+            <!-- <script src = "{{ url_for('static', filename = 'js/') }}" defer></script> -->
+            <script src = "{{ url_for('user.static', filename = 'js/user.js') }}" defer></script>
+
+            {% block head %}
+
+            {% endblock %}
+        </head>
+    
     <body>
         <div id = "block-links">
             <a href="/">HOME</a>
             <a href="/tour">TOUR</a>
-            <a href="/user">REGISTRATION</a>
+            {% if username == "none" %}
+
+                <a href="/user">REGISTRATION</a>
+
+            {% else %}
+
+                <h2>Hello, {{ username }} !</h2>
+                <form method="post">
+                    <button id = "log-out">
+                        Log out
+                    </button>
+                </form>
+
+            {% endif %}
+
             <form action="post">
-                <button id = "user-icon">`
+                <button id = "user-icon">
+                    <img src="" alt="">
                     icon
                 </button>
             </form>

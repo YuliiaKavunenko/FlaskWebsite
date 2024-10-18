@@ -26,9 +26,12 @@
                 <p class = "second-message">
                     try again
                 </p>
-                <button class = "message-exit-button">
-                    Exit
-                </button>
+                <form methods="">
+                    <button class = "message-exit-button">
+                        Exit
+                    </button>
+                </form>
+
             {% elif error == False %}
                 <img class = "happy-pinguin" src = "" alt = "">
                 <p class = "main-message">
@@ -37,7 +40,7 @@
                 <p class = "second-message">
                     Your feedback is what people need
                 </p>
-                <form action="post">
+                <form methods ="post">
                     <button class = "message-exit-button">
                         Exit
                     </button>

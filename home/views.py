@@ -1,9 +1,13 @@
-import flask
+import flask, flask_login
 from main.settings import mail
 from flask_mail import Message
 
 def render_home():
-    error = False
+    error = None
+    global username
+    username = "none"
+    if flask_login.current_user.is_authenticated:
+        username = flask_login.current_user.username
     if flask.request.method == "POST":
         if flask.request.form.get("name"):
             name = flask.request.form.get("name")
@@ -24,4 +28,4 @@ def render_home():
             except Exception as e:
                 print(f"Помилка: {e}")
                 error = True
-    return flask.render_template(template_name_or_list = "home.html", error = error)
+    return flask.render_template(template_name_or_list = "home.html", error = error, username = username)
