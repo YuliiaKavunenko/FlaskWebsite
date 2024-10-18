@@ -8,14 +8,14 @@ def render_user():
     data_checked = None
 
     if flask_login.current_user.is_authenticated:
-        username = flask_login.current_user.username
+        username = flask_login.current_user.name
         registered = True
         error_auth = False
         data_checked = False
 
     else:
         username = "none"
-        # registered = False
+        registered = True
         if flask.request.method == "POST":
             registration = flask.request.form.get("reg-username")
             authorization = flask.request.form.get("auth-username")
@@ -25,8 +25,8 @@ def render_user():
             if registration != None:
                 print("Hello")
                 user = User(
-                    username=flask.request.form["reg-username"],
-                    password=flask.request.form["reg-password"]
+                    name = flask.request.form["reg-username"],
+                    password = flask.request.form["reg-password"]
                 )
                 print(user)
                 try:
@@ -34,14 +34,17 @@ def render_user():
                     db.session.add(user)
                     db.session.commit()
                     registered = True
+                    username = "none"
+                    # data_checked = False  
                 except:
                     registered = False
                     return "Error"
                 
             if authorization != None:
                 data_checked = True
+                username = "none"
                 users = User.query.filter_by(
-                    username = flask.request.form["auth-username"],
+                    name = flask.request.form["auth-username"],
                     password = flask.request.form["auth-password"]
                 ).all()
 
@@ -55,11 +58,11 @@ def render_user():
                     registered = True
                     error_auth = False
                     flask_login.login_user(users[0])
-                    username = users[0].username
+                    username = users[0].name
             else:
-                username = username,
-                registered = False,
-                error_auth = None,
+                username = "none"
+                registered = False
+                error_auth = None
                 data_checked = False
 
                    

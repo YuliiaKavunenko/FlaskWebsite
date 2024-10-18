@@ -14,8 +14,8 @@ class Tours(db.Model):
     
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
-    username = db.Column(db.String())
+    name = db.Column(db.String())
     password = db.Column(db.String())
 
     def __repr__(self) -> str:
-        return f"користувач - {self.username}"
+        return f"користувач - {self.name}"

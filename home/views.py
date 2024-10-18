@@ -7,7 +7,7 @@ def render_home():
     global username
     username = "none"
     if flask_login.current_user.is_authenticated:
-        username = flask_login.current_user.username
+        username = flask_login.current_user.name
     if flask.request.method == "POST":
         if flask.request.form.get("name"):
             name = flask.request.form.get("name")
