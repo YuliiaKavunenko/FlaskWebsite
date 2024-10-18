@@ -19,5 +19,3 @@ class User(db.Model, UserMixin):
 
     def __repr__(self) -> str:
         return f"користувач - {self.username}"
-    
-
