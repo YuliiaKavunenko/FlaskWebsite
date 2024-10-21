@@ -4,16 +4,21 @@
     Home
 {% endblock %}
 
+{% block head %} <!-- в блоке head можно подключать css i js -->
+    <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h1>Головна сторінка</h1>
-    <form method="post" name = "user-review">
+    <br><br>
+    <!-- <h1>Головна сторінка</h1> -->
+    <form method="post" name = "user-review" id = "review-form" >
         <h2>
             Share your opinion with us!
         </h2>
-        <input type = "text" name = "name" placeholder = "Enter your name">
-        <input type = "email" name = "email" placeholder = "Enter your email">
-        <textarea name = "review" placeholder = "Leave your review"></textarea>
-        <button name = "send-button">Send</button>
+        <input type = "text" name = "name" placeholder = "Enter your name" id = "name-input">
+        <input type = "email" name = "email" placeholder = "Enter your email" id = "email-input">
+        <textarea name = "review" placeholder = "Leave your review" id = "review-input"></textarea>
+        <button name = "send-button" id = "send-button">Send</button>
         
     </form>
     <div id = "message-window">

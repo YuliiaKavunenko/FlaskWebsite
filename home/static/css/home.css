@@ -1,0 +1,68 @@
+/* 
+Если по:
+
+- id - #название
+- class - .название
+- name - название-тега(h1)['название']
+- тег - тег (h1, h2)
+
+*/
+body{
+    margin: 0px;
+    background: linear-gradient(to bottom, #4D648C, #273655);
+}
+#block-links{
+    display: flex;
+    width: 100% ;
+    height: 84px ;
+    background-color: #1E1E26 ;
+    flex-direction: row;
+}
+#block-links *{
+    margin-left: 10px;
+}
+a, h2{
+    color: #C0D1EA;
+}
+#review-form{
+    width: 718px ;
+    height: 403px ;
+    background-color: #C0D1EA ;
+    border-radius: 25px ;
+}
+
+#review-form h2 {
+    color: #1E1E26;
+}
+
+#name-input{
+    width: 625px ;
+    height: 48px ;
+    background-color: #E6EFFE ;
+    border: 2px solid #4D648C ;
+    border-radius: 10px; ;
+}
+
+#email-input{
+    width: 625px ;
+    height: 48px ;
+    background-color: #E6EFFE ;
+    border: 2px solid #4D648C ;
+    border-radius: 10px;
+}
+
+#review-input{
+    width: 625px ;
+    height: 48px ;
+    background-color: #E6EFFE ;
+    border: 2px solid #4D648C ;
+    border-radius: 10px;
+}
+
+#send-button{
+    width: 413px ;
+    height: 45px ;
+    background-color: #1E1E26 ;
+    border-radius: 10px;
+    color: white;
+}
