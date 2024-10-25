@@ -3,8 +3,11 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>{% block title %}{% endblock %}</title>
-            <script src = "{{ url_for('user.static', filename = 'js/user.js') }}" defer></script>
-
+            
+            <!-- подключили файлы сss и js -->
+            <!-- <script src = "{{ url_for('static', filename = 'js/base.js') }}" defer></script>
+            <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}"> -->
+ 
             {% block head %}
 
             {% endblock %}
@@ -16,12 +19,12 @@
             <a href="/tour">TOUR</a>
             {% if username == "none" %}
 
-                <a href="/user">REGISTRATION</a>
+                <a href="/user">AUTHORIZATION</a>
 
             {% else %}
 
                 <h2>Hello, {{ username }} !</h2>
-                <form method="post">
+                <form method = "get" id = "log-out-form">
                     <button id = "log-out">
                         Log out
                     </button>

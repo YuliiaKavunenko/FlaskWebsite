@@ -8,3 +8,6 @@ login = flask_login.LoginManager(app =  project)
 @login.user_loader
 def load(id):
     return User.query.get(id)
+
+def log_out():
+    flask_login.logout_user()

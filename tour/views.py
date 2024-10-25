@@ -2,7 +2,12 @@ import flask, flask_login, os, pandas
 from main.models import Tours
 import main
 
+def delete_tours():
+    Tours.query.delete()
+    main.db.session.commit()
+    
 def render_tour():
+    delete_tours()
     global username
     username = "none"
     if flask_login.current_user.is_authenticated:
@@ -25,8 +30,10 @@ def render_tour():
                 price = row_data["price"],
                 description = row_data["description"]
             )
+            print(Tours.query.all())
             main.db.session.add(tour)
-            main.db.session.commit()
+        main.db.session.commit()
+        print(Tours.query.all())
 
 
-    return flask.render_template(template_name_or_list= "tour.html", username = username)
+    return flask.render_template(template_name_or_list= "tour.html", username = username, tours = Tours.query.all())

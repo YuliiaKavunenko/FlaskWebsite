@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 
+<!-- создать static в корне приложения и подключить файлы css, js-->
+
 {% block title %}
     Tour
 {% endblock %}
 
 {% block content %}
     <h1>Сторінка Туру</h1>
+    <!-- 
+    -title
+    - date 
+    - country 
+    -->
+    {% for tour in tours %}
+
+        <a href="">{{ tour.title.split(";")[0] }}</a>
+
+        {% for date in tour.date.split(",") %}
+            <h2>{{ date }}</h2>
+        {% endfor %}
+        <h2>{{ tour.country }}</h2>
+
+    {% endfor %}
+    
 {% endblock %}

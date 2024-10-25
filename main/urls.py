@@ -8,5 +8,5 @@ user_app.add_url_rule(rule = "/user", view_func = render_user, methods = ["GET",
 tour_app.add_url_rule(rule = "/tour", view_func = render_tour, methods = ["GET", "POST"])
 
 project.register_blueprint(blueprint= home_app)
-project.register_blueprint(blueprint = user_app )
+project.register_blueprint(blueprint = user_app)
 project.register_blueprint(blueprint = tour_app)

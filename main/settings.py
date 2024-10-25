@@ -4,7 +4,7 @@ from flask_mail import Mail
 project = flask.Flask(
     import_name = "main",
     template_folder = "templates",
-    instance_path = os.path.abspath(__file__ + "../../instance/data.db")
+    instance_path = os.path.abspath(__file__ + "../../../instance/data.db")
 )
 
 project.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
