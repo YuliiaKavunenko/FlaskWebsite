@@ -34,6 +34,20 @@ def render_tour():
             main.db.session.add(tour)
         main.db.session.commit()
         print(Tours.query.all())
+    
+    if flask.request.method == "POST":
+            if flask.request.form.get("logout"):
+                flask_login.logout_user()
+                return flask.redirect("/user")
 
 
     return flask.render_template(template_name_or_list= "tour.html", username = username, tours = Tours.query.all())
+
+def render_tour_detail(tour_id):
+    if flask_login.current_user.is_authenticated:
+        username = flask_login.current_user.name
+    else:
+        username = "none"
+    
+    tour = Tours.query.get_or_404(tour_id)
+    return flask.render_template("tour_details.html", tour = tour, username = username)

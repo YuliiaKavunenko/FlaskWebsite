@@ -6,22 +6,38 @@
     Tour
 {% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('tour.static', filename = 'css/tour.css') }}">
+    <script src = "{{ url_for('tour.static', filename = 'js/tour.js') }}" defer></script>
+{% endblock %}
+
 {% block content %}
-    <h1>Сторінка Туру</h1>
-    <!-- 
-    -title
-    - date 
-    - country 
-    -->
-    {% for tour in tours %}
+    <div id = "content">
+        <h1>Сторінка Туру</h1>
+        <!-- 
+        -title
+        - date 
+        - country 
+        -->
+        <div id = "tours">
+            
+                {% for tour in tours %}
 
-        <a href="">{{ tour.title.split(";")[0] }}</a>
+                    <div id = "trip-{{tour.id}}" class="trip">
+                        <a href="{{ url_for('tour.render_tour_detail', tour_id=tour.id) }}">{{ tour.title.split(";")[0] }}</a>
+                        
+                        <h3>{{ tour.date.split(",")[0] }}</h3>
+                        <!-- {% for date in tour.date.split(",") %}
+                            <h2>{{ date }}</h2>
+                        {% endfor %} -->
+                        <h3>{{ tour.country }}</h3>
+                    </div>
 
-        {% for date in tour.date.split(",") %}
-            <h2>{{ date }}</h2>
-        {% endfor %}
-        <h2>{{ tour.country }}</h2>
-
-    {% endfor %}
+                {% endfor %}
+            
+        </div>
+    </div>
+    
+    
     
 {% endblock %}

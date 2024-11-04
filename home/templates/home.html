@@ -8,50 +8,53 @@
     <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">
 {% endblock %}
 
+
 {% block content %}
-    <br><br>
-    <!-- <h1>Головна сторінка</h1> -->
-    <form method="post" name = "user-review" id = "review-form" >
-        <h2>
-            Share your opinion with us!
-        </h2>
-        <input type = "text" name = "name" placeholder = "Enter your name" id = "name-input">
-        <input type = "email" name = "email" placeholder = "Enter your email" id = "email-input">
-        <textarea name = "review" placeholder = "Leave your review" id = "review-input"></textarea>
-        <button name = "send-button" id = "send-button">Send</button>
-        
-    </form>
-    <div id = "message-window">
-        <div id = "mini-window-content">
-            {% if error == True %}
-                <img class = "sad-pinguin" src = "" alt = "">
-                <p class = "main-message">
-                    Oops.. Something went wrong 
-                </p>
-                <p class = "second-message">
-                    try again
-                </p>
-                <form methods="">
-                    <button class = "message-exit-button">
-                        Exit
-                    </button>
-                </form>
+    <div id="content">
+        <br><br>
+        <!-- <h1>Головна сторінка</h1> -->
+        <form method="post" name = "user-review" id = "review-form" >
+            <h2>
+                Share your opinion with us!
+            </h2>
+            <input type = "text" name = "name" placeholder = "Enter your name" id = "name-input">
+            <input type = "email" name = "email" placeholder = "Enter your email" id = "email-input">
+            <textarea name = "review" placeholder = "Leave your review" id = "review-input"></textarea>
+            <button name = "send-button" id = "send-button">Send</button>
+            
+        </form>
+        <div id = "message-window">
+            <div id = "mini-window-content">
+                {% if error == True %}
+                    <img class = "sad-pinguin" src = "" alt = "">
+                    <p class = "main-message">
+                        Oops.. Something went wrong 
+                    </p>
+                    <p class = "second-message">
+                        try again
+                    </p>
+                    <form methods="">
+                        <button class = "message-exit-button">
+                            Exit
+                        </button>
+                    </form>
 
-            {% elif error == False %}
-                <img class = "happy-pinguin" src = "" alt = "">
-                <p class = "main-message">
-                    Thanks for your response! 
-                </p>
-                <p class = "second-message">
-                    Your feedback is what people need
-                </p>
-                <form methods ="post">
-                    <button class = "message-exit-button">
-                        Exit
-                    </button>
-                </form>
+                {% elif error == False %}
+                    <img class = "happy-pinguin" src = "" alt = "">
+                    <p class = "main-message">
+                        Thanks for your response! 
+                    </p>
+                    <p class = "second-message">
+                        Your feedback is what people need
+                    </p>
+                    <form methods ="post">
+                        <button class = "message-exit-button">
+                            Exit
+                        </button>
+                    </form>
 
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

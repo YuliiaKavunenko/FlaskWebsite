@@ -15,29 +15,36 @@
     
     <body>
         <header id = "block-links">
-            <a href="/">HOME</a>
-            <a href="/tour">TOUR</a>
-            {% if username == "none" %}
+            <div id="links-content">
+                <a href="/">HOME</a>
+                <a href="/tour">TOUR</a>
+                <a href="/user">USER</a>
+                {% if username == "none" %}
 
-                <a href="/user">AUTHORIZATION</a>
+                    <!-- <a href="/user">USER</a> -->
+                    <a href="{{ url_for('user.registration') }}">REGISTRATION</a>
+                    <a href="{{ url_for('user.authorization') }}">AUTHORIZATION</a>
 
-            {% else %}
+                {% else %}
 
-                <h2>Hello, {{ username }} !</h2>
-                <form method = "get" id = "log-out-form">
-                    <button id = "log-out">
-                        Log out
+                    <h2>Hello, {{ username }} !</h2>
+                    <form method = "post" id = "log-out-form">
+                        <input type="hidden" name="logout" value="true">
+                        <button id = "log-out">
+                            Log out
+                        </button>
+                    </form>
+
+                {% endif %}
+
+                <form action="post">
+                    <button id = "user-icon">
+                        <img src="" alt="">
+                        icon
                     </button>
                 </form>
-
-            {% endif %}
-
-            <form action="post">
-                <button id = "user-icon">
-                    <img src="" alt="">
-                    icon
-                </button>
-            </form>
+            </div>
+            
         </header>
             
         {% block content %}

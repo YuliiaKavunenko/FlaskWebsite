@@ -11,6 +11,12 @@ body{
     margin: 0px;
     background: linear-gradient(to bottom, #4D648C, #273655);
 }
+
+#content{
+    margin-left: 95px;
+    margin-right: 95px;
+}
+
 #block-links{
     display: flex;
     width: 100% ;
@@ -20,6 +26,10 @@ body{
 }
 #block-links *{
     margin-left: 10px;
+}
+#links-content{
+    margin-left: 95px;
+    margin-right: 95px;
 }
 a, h2{
     color: #C0D1EA;
@@ -35,28 +45,35 @@ a, h2{
     color: #1E1E26;
 }
 
-#name-input{
-    width: 625px ;
-    height: 48px ;
-    background-color: #E6EFFE ;
-    border: 2px solid #4D648C ;
-    border-radius: 10px; ;
+#review-form *{
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#email-input{
+input{
     width: 625px ;
     height: 48px ;
     background-color: #E6EFFE ;
     border: 2px solid #4D648C ;
     border-radius: 10px;
+    color: #1E1E26;
 }
-
+/* Задаем цвет внутреннему тексту инпута */
+input::placeholder{
+    color: #4D658C;
+}
+textarea::placeholder{
+    color: #4D658C;
+}
 #review-input{
     width: 625px ;
     height: 48px ;
     background-color: #E6EFFE ;
     border: 2px solid #4D648C ;
     border-radius: 10px;
+    color: #1E1E26;
 }
 
 #send-button{

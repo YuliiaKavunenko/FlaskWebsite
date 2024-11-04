@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Details
+{% endblock %}
+
+{% block content %}
+    <div id="tour-detail">
+        <h1>{{ tour.title.split(";")[1] }}</h1>
+        <h3>Date:</h3>
+
+        {% for date in tour.date.split(",") %}
+            <p>{{ date }}</p>
+        {% endfor %}
+
+        <h3>Country: {{ tour.country }}</h3>
+        <h3>Price: {{ tour.price }}</h3>
+        
+        {% for descript in tour.description.split(";") %}
+            <p>{{ descript }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

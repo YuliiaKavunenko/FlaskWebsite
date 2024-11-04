@@ -7,11 +7,7 @@ def render_home():
     global username
     username = "none"
     if flask_login.current_user.is_authenticated:
-        username = flask_login.current_user.name
-        if flask.request.method == "GET":
-            flask_login.logout_user()
-            print("5673894504372634758 lololol")
-            flask.redirect("/user")
+        username = flask_login.current_user.name            
     if flask.request.method == "POST":
         if flask.request.form.get("name"):
             name = flask.request.form.get("name")
@@ -32,5 +28,7 @@ def render_home():
             except Exception as e:
                 print(f"Помилка: {e}")
                 error = True
-        
+        if flask.request.form.get("logout"):
+            flask_login.logout_user()
+            return flask.redirect("/user")
     return flask.render_template(template_name_or_list = "home.html", error = error, username = username)

@@ -5,84 +5,28 @@
 {% endblock %}
 
 {% block head %}
+    <link rel="stylesheet" href="{{ url_for('user.static', filename = 'css/user.css') }}">
     <script src = "{{ url_for('user.static', filename = 'js/user.js') }}" defer></script>
 {% endblock %}
 
 {% block content %}
+    <div id = "content">
+        <h1>Сторінка користувача</h1>
 
-    <h1>Сторінка користувача</h1>
+        {% if username != 'none' %}
+            <div id="welcome-auth-text">
+                <h2>Welcome to user page, {{ username }} !</h2>
+            </div>
 
-    {% if username != 'none' %}
-
-        <h2>Welcome to user page, {{ username }} !</h2>
-
-    {% else %}
-
-        {% if registered == False %}
-
-            <form method="post" name = "registration-form" id="registration-form">
-
-                <img src="" alt="" class="mini-pinguin">
-                <h2>Registration</h2>
-                <input type="text" name="reg-username" placeholder="Enter your username">
-                <input name="reg-password" placeholder="Enter password">
-                <input type="text" placeholder="Confirm password">
-                <button name="send-button" id = "confirm-registration" type="submit">Confirm</button>
-
-                <div class="message-window" id = "success-registration-window" style="display: none;">
-
-                    <div class="mini-window-content">
-                            <img class="happy-pinguin" src="" alt="">
-                            <p class="main-message">Successful registration!</p>
-                            <p class="second-message">Let's move to the next step</p>
-                            <button type="submit" id = "next-authorization" class="message-authorization-button">Authorization</button>
-    
-                    </div>
-                </div>
-
-            </form>
-
-        {% elif registered == True %}
-
-            <form method="post" name="authorization-form" id = "authorization-form">
-
-                <img src="" alt="" class="mini-pinguin">
-                <h2>Authorization</h2>
-                <input type="text" name="auth-username" placeholder="Enter your username">
-                <input name="auth-password" placeholder="Enter password">
-
-                <button type="submit" name="send-button" id = "confirm-authorization">
-                    Confirm
-                </button>
-
-            </form>
-            {% if data_checked == True %}
-                <div class="message-window" id = "modal-authorization-window">
-                    <div class="mini-window-content">
-                        {% if error_auth == True %}
-
-                            <img class="sad-pinguin" src="" alt="">
-                            <p class="main-message">Looks like you are not registered</p>
-                            <p class="second-message">Waiting on the registration page!</p>
-
-                            <form method ="post">
-                                <button type="submit" class="message-registration-button">Registration</button>
-                            </form>
-
-                        {% elif error_auth == False %}
-                            <img class="happy-pinguin" src="" alt="">
-                            <p class="main-message">Successful authorization!</p>
-                            <p class="second-message">Your trip is already waiting for you</p>
-
-                            <form method ="post" name="good-authorization">
-                                <button type="submit" class="message-exit-button">Exit</button>
-                            </form>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endif %}
+        {% else %}
+            <div id="welcome-auth-text">
+                <h2>Welcome to user page, you need to login!</h2>
+                <h2>If you not registred..<a href="{{ url_for('user.registration') }}" class="message-registration-button">REGISTRATION</a></h2>
+                <h2>If you are already registered..<a href="{{ url_for('user.authorization') }}" class="message-authorization-button">AUTHORIZATION</a></h2>
+            </div>
+            
         {% endif %}
-
-    {% endif %}
+    </div>
+    
 
 {% endblock %}

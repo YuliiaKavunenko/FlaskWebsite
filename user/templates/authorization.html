@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Authorization
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('user.static', filename='css/user.css') }}">
+    <script src="{{ url_for('user.static', filename='js/authorization.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="authorization-form">
+        <h2>Authorization</h2>
+        <input type="text" name="auth-username" placeholder="Enter your username">
+        <input type="password" name="auth-password" placeholder="Enter password">
+        <button type="submit" id="confirm-authorization">Confirm</button>
+    </form>
+
+    <div class="message-window" id="modal-authorization-window" style="display: {% if error_auth is not none %}block{% else %}none{% endif %};">
+        <div class="mini-window-content">
+            {% if error_auth %}
+                <img class="sad-pinguin" src="" alt="">
+                <p class="main-message">Looks like you are not registered</p>
+                <p class="second-message">Waiting on the registration page!</p>
+                <a href="{{ url_for('user.registration') }}" class="message-registration-button">Registration</a>
+            {% else %}
+                <img class="happy-pinguin" src="" alt="">
+                <p class="main-message">Successful authorization!</p>
+                <p class="second-message">Your trip is already waiting for you</p>
+                <form method="post" name="good-authorization">
+                    <button type="submit" class="message-exit-button">Exit</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

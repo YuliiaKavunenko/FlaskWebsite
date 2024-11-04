@@ -1,0 +1,109 @@
+body{
+    margin: 0px;
+    background-image: url("../img/mountain.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#content{
+    margin-left: 95px;
+    margin-right: 95px;
+}
+
+#welcome-auth-text h2{
+    color: #1E1E26;
+}
+
+#welcome-auth-text{
+    background-color: #D0E1F9;
+    border-radius: 25px;
+    width: 720px;
+    height: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#block-links{
+    display: flex;
+    width: 100% ;
+    height: 84px ;
+    background-color: #1E1E26 ;
+    flex-direction: row;
+    
+}
+#block-links *{
+    margin-left: 10px;
+}
+#links-content{
+    margin-left: 95px;
+    margin-right: 95px;
+}
+a, h2{
+    color: #C0D1EA;
+}
+
+#registration-form{
+    width: 440px;
+    height: 393px;
+    background-color: #D0E1F9;
+    border-radius: 25px;
+}
+
+#registration-form h2{
+    color: #1E1E26;
+}
+
+#registration-form *{
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Задаем цвет внутреннему тексту инпута */
+input::placeholder{
+    color: #4D658C;
+}
+
+input{
+    width: 384px;
+    height: 48px;
+    background-color: #E6EFFE;
+    border: 2px solid #4D648C;
+    border-radius: 10px;
+    color: #1E1E26;
+}
+#confirm-registration{
+    width: 254px;
+    height: 45px;
+    background-color: #1E1E26;
+    border-radius: 10px;
+    color: #F8FEFF;
+}
+
+#authorization-form{
+    width: 440px;
+    height: 321px;
+    background-color: #D0E1F9;
+    border-radius: 25px;
+}
+
+#authorization-form h2{
+    color: #1E1E26;
+}
+
+#authorization-form *{
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#confirm-authorization{
+    width: 254px;
+    height: 45px;
+    background-color: #1E1E26;
+    border-radius: 10px;
+    color: #F8FEFF;
+}

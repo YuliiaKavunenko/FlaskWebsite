@@ -1,0 +1,43 @@
+body{
+    margin: 0px;
+    background: linear-gradient(to left, #4D658C, #273655);
+}
+#block-links{
+    display: flex;
+    width: 100% ;
+    height: 84px ;
+    background-color: #1E1E26 ;
+    flex-direction: row;
+    
+}
+
+/* #content{
+    margin-left: 95px;
+    margin-right: 95px;
+} */
+
+#block-links a, h2{
+    color: #C0D1EA;
+}
+#block-links *{
+    margin-left: 10px;
+}
+#links-content{
+    margin-left: 95px;
+    margin-right: 95px;
+}
+#tours div{
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+}
+
+.trip *{
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+.trip{
+    width: 100%;
+    height: 176px;
+    background-color: #D0E1F9;
+}
