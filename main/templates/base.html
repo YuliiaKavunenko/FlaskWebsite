@@ -3,40 +3,50 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>{% block title %}{% endblock %}</title>
-            <!-- <script src = "{{ url_for('static', filename = 'js/') }}" defer></script> -->
-            <script src = "{{ url_for('user.static', filename = 'js/user.js') }}" defer></script>
-
+            
+            <!-- подключили файлы сss и js -->
+            <!-- <script src = "{{ url_for('static', filename = 'js/base.js') }}" defer></script>
+            <link rel="stylesheet" href="{{ url_for('static', filename = 'css/base.css') }}"> -->
+ 
             {% block head %}
 
             {% endblock %}
         </head>
     
     <body>
-        <div id = "block-links">
-            <a href="/">HOME</a>
-            <a href="/tour">TOUR</a>
-            {% if username == "none" %}
+        <header id = "block-links">
+            <div id="links-content">
+                <a href="/">HOME</a>
+                <a href="/tour">TOUR</a>
+                <a href="/user">USER</a>
+                {% if username == "none" %}
 
-                <a href="/user">REGISTRATION</a>
+                    <!-- <a href="/user">USER</a> -->
+                    <a href="{{ url_for('user.registration') }}">REGISTRATION</a>
+                    <a href="{{ url_for('user.authorization') }}">AUTHORIZATION</a>
 
-            {% else %}
+                {% else %}
 
-                <h2>Hello, {{ username }} !</h2>
-                <form method="post">
-                    <button id = "log-out">
-                        Log out
+                    <h2>Hello, {{ username }} !</h2>
+                    <form method = "post" id = "log-out-form">
+                        <input type="hidden" name="logout" value="true">
+                        <button id = "log-out">
+                            Log out
+                        </button>
+                    </form>
+
+                {% endif %}
+
+                <form action="post">
+                    <button id = "user-icon">
+                        <img src="" alt="">
+                        icon
                     </button>
                 </form>
-
-            {% endif %}
-
-            <form action="post">
-                <button id = "user-icon">
-                    <img src="" alt="">
-                    icon
-                </button>
-            </form>
-        </div>
+            </div>
+            
+        </header>
+            
         {% block content %}
         {% endblock %}
     </body>

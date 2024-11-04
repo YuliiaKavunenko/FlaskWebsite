@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('user.static', filename = 'css/user.css') }}">
+    <script src = "{{ url_for('user.static', filename = 'js/registration.js') }}" defer></script>
+{% endblock %}
+
+{% block content %}
+    <form method="post" id="registration-form">
+        <h2>Registration</h2>
+        <input type = "text" name = "reg-username" placeholder = "Enter your username">
+        <input type = "password" name = "reg-password" placeholder = "Enter password">
+        <input type = "password" placeholder="Confirm password">
+        <button type="submit" id="confirm-registration" name = "send-button">Confirm</button>
+
+        <div class = "message-window" id = "success-registration-window" style = "display: none;">
+            <div class="mini-window-content">
+                <img src="" alt="хaппи">
+                <p>Successful registration!</p>
+                <p>Let's move to the next step</p>
+                <!-- <a href="{{ url_for('user.authorization') }}" class="message-authorization-button">Authorization</a> -->
+                <button type="submit" id = "next-authorization" class="message-authorization-button">Authorization</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}
