@@ -8,9 +8,15 @@ body{
 #content{
     margin-left: 95px;
     margin-right: 95px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 84px;
 }
 
 #welcome-auth-text h2{
+    font-family: "Gill Sans MT";
+    font-weight: bold;
     color: #1E1E26;
 }
 
@@ -38,8 +44,14 @@ body{
 #links-content{
     margin-left: 95px;
     margin-right: 95px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 84px;
 }
 a, h2{
+    font-family: "Gill Sans MT";
+    font-weight: bold;
     color: #C0D1EA;
 }
 
@@ -48,9 +60,15 @@ a, h2{
     height: 393px;
     background-color: #D0E1F9;
     border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #registration-form h2{
+    font-family: "Gill Sans MT";
+    font-weight: bold;
     color: #1E1E26;
 }
 
@@ -64,6 +82,8 @@ a, h2{
 /* Задаем цвет внутреннему тексту инпута */
 input::placeholder{
     color: #4D658C;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
 }
 
 input{
@@ -73,6 +93,8 @@ input{
     border: 2px solid #4D648C;
     border-radius: 10px;
     color: #1E1E26;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
 }
 #confirm-registration{
     width: 254px;
@@ -87,9 +109,16 @@ input{
     height: 321px;
     background-color: #D0E1F9;
     border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 #authorization-form h2{
+    font-family: "Gill Sans MT";
+    font-weight: bold;
     color: #1E1E26;
 }
 
@@ -106,4 +135,79 @@ input{
     background-color: #1E1E26;
     border-radius: 10px;
     color: #F8FEFF;
+}
+.message-window{
+    background-color: #1919198a;
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.message-window div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.mini-window-content{
+    width: 40%;
+    height: 50%;
+    background-color: #D0E1F9;
+    border-radius: 25px;
+}
+
+.mini-window-content *{
+    font-family: "Gill Sans MT";
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+
+.message-registration-button{
+    width: 159px;
+    height: 45px;
+    background-color: #1E1E26;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+#next-authorization{
+    background-color: #1E1E26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
+    width: 160px;
+    height: 45px;
+    color: #D0E1F9;
+}
+.message-exit-button{
+    background-color: #1E1E26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
+    width: 160px;
+    height: 45px;
+    color: #D0E1F9;
 }

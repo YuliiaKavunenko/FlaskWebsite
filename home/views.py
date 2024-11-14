@@ -9,9 +9,12 @@ def render_home():
     if flask_login.current_user.is_authenticated:
         username = flask_login.current_user.name            
     if flask.request.method == "POST":
+        if flask.request.form.get("close-modal"):
+            error = None
         if flask.request.form.get("name"):
             name = flask.request.form.get("name")
             print(name)
+            
             email = flask.request.form.get("email")
             print(email)
             review = flask.request.form.get("review")

@@ -28,10 +28,16 @@ body{
     margin-left: 10px;
 }
 #links-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 84px;
     margin-left: 95px;
     margin-right: 95px;
 }
 a, h2{
+    font-family: "Gill Sans MT";
+    font-weight: bold;
     color: #C0D1EA;
 }
 #review-form{
@@ -39,17 +45,31 @@ a, h2{
     height: 403px ;
     background-color: #C0D1EA ;
     border-radius: 25px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #review-form h2 {
+    font-family: "Gill Sans MT";
+    font-weight: bold;
     color: #1E1E26;
 }
 
 #review-form *{
     margin-bottom: 24px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+textarea{
+    min-height: 48px;
+    max-height: 120px;
+    min-width: 625px;
+    max-width: 625px;
 }
 
 input{
@@ -59,13 +79,19 @@ input{
     border: 2px solid #4D648C ;
     border-radius: 10px;
     color: #1E1E26;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
 }
 /* Задаем цвет внутреннему тексту инпута */
 input::placeholder{
     color: #4D658C;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
 }
 textarea::placeholder{
     color: #4D658C;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
 }
 #review-input{
     width: 625px ;
@@ -74,6 +100,8 @@ textarea::placeholder{
     border: 2px solid #4D648C ;
     border-radius: 10px;
     color: #1E1E26;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
 }
 
 #send-button{
@@ -82,4 +110,50 @@ textarea::placeholder{
     background-color: #1E1E26 ;
     border-radius: 10px;
     color: white;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
+}
+#message-window{
+    width: 100%;
+    height: 100%;
+    background-color: #1919198a;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#message-window div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+#mini-window-content{
+    width: 40%;
+    height: 55%;
+    background-color: #D0E1F9;
+    border-radius: 25px;
+}
+#mini-window-content *{
+    font-family: "Gill Sans MT";
+    margin-bottom: 16px;
+    margin-top: 0px;
+}
+.message-exit-button{
+    background-color: #1E1E26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-family: "Gill Sans MT";
+    font-weight: bold;
+    width: 160px;
+    height: 45px;
+    color: #D0E1F9;
 }

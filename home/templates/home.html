@@ -6,6 +6,7 @@
 
 {% block head %} <!-- в блоке head можно подключать css i js -->
     <link rel="stylesheet" href="{{ url_for('home.static', filename='css/home.css') }}">
+    <script src="{{ url_for('home.static', filename='js/home.js') }}"></script>
 {% endblock %}
 
 
@@ -23,7 +24,7 @@
             <button name = "send-button" id = "send-button">Send</button>
             
         </form>
-        <div id = "message-window">
+        <div id = "message-window" style="display: none;">
             <div id = "mini-window-content">
                 {% if error == True %}
                     <img class = "sad-pinguin" src = "" alt = "">
@@ -33,8 +34,8 @@
                     <p class = "second-message">
                         try again
                     </p>
-                    <form methods="">
-                        <button class = "message-exit-button">
+                    <form method="">
+                        <button class="message-exit-button" name="close-modal" value="1">
                             Exit
                         </button>
                     </form>

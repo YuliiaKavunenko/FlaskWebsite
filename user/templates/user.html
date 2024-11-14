@@ -11,7 +11,6 @@
 
 {% block content %}
     <div id = "content">
-        <h1>Сторінка користувача</h1>
 
         {% if username != 'none' %}
             <div id="welcome-auth-text">
@@ -21,8 +20,8 @@
         {% else %}
             <div id="welcome-auth-text">
                 <h2>Welcome to user page, you need to login!</h2>
-                <h2>If you not registred..<a href="{{ url_for('user.registration') }}" class="message-registration-button">REGISTRATION</a></h2>
-                <h2>If you are already registered..<a href="{{ url_for('user.authorization') }}" class="message-authorization-button">AUTHORIZATION</a></h2>
+                <!-- <h2>If you not registred..<a href="{{ url_for('user.registration') }}" class="message-registration-button">REGISTRATION</a></h2>
+                <h2>If you are already registered..<a href="{{ url_for('user.authorization') }}" class="message-authorization-button">AUTHORIZATION</a></h2> -->
             </div>
             
         {% endif %}
